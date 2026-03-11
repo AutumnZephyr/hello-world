@@ -34,12 +34,10 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        font-size: 110px;
-        line-height: 1;
         transform-origin: center center;
         animation: spin 2.5s linear infinite;
         user-select: none;
-        filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.35));
       }
 
       @keyframes spin {
@@ -108,8 +106,66 @@
 
     <div class="scene">
 
-      <!-- Center spinning Homer -->
-      <div class="homer">🕴️</div>
+      <!-- Center spinning Homer-Jesus -->
+      <div class="homer">
+        <svg viewBox="-60 -125 120 245" width="130" height="260" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Robe body -->
+          <polygon points="0,-50 -32,-44 -40,72 40,72 32,-44" fill="white" stroke="#ccc" stroke-width="1.5"/>
+          <!-- Robe fold lines -->
+          <line x1="0" y1="-44" x2="-8" y2="72" stroke="#ddd" stroke-width="1"/>
+          <line x1="0" y1="-44" x2="10" y2="72" stroke="#ddd" stroke-width="1"/>
+
+          <!-- Left arm extended sideways -->
+          <line x1="-30" y1="-28" x2="-56" y2="-8" stroke="white" stroke-width="11" stroke-linecap="round"/>
+          <!-- Left hand (yellow) -->
+          <circle cx="-56" cy="-8" r="9" fill="#FFD700"/>
+
+          <!-- Right arm raised high -->
+          <line x1="28" y1="-30" x2="48" y2="-82" stroke="#FFD700" stroke-width="9" stroke-linecap="round"/>
+          <!-- Right hand -->
+          <circle cx="48" cy="-82" r="8" fill="#FFD700"/>
+          <!-- Dagger handle -->
+          <rect x="44" y="-115" width="8" height="10" rx="2" fill="#8B4513"/>
+          <!-- Dagger guard (crosspiece) -->
+          <rect x="39" y="-107" width="18" height="4" rx="2" fill="#888"/>
+          <!-- Dagger blade -->
+          <polygon points="48,-106 51,-85 45,-85" fill="#c0c0c0"/>
+          <polygon points="48,-115 51,-106 45,-106" fill="#e0e0e0"/>
+
+          <!-- Head (yellow, Simpsons) -->
+          <circle cx="0" cy="-80" r="27" fill="#FFD700"/>
+
+          <!-- Hair (dark, Homer-style side fringe) -->
+          <path d="M-22,-88 Q-28,-112 -6,-108 Q0,-118 6,-108 Q28,-112 22,-88" fill="#2c1f10"/>
+          <!-- Homer's signature hair curl -->
+          <path d="M18,-94 Q30,-105 22,-88" fill="none" stroke="#2c1f10" stroke-width="4" stroke-linecap="round"/>
+
+          <!-- Beard (Jesus-style, dark brown) -->
+          <ellipse cx="0" cy="-60" rx="21" ry="16" fill="#3d2b1f"/>
+          <!-- Beard point -->
+          <polygon points="-10,-52 10,-52 0,-38" fill="#3d2b1f"/>
+          <!-- Moustache -->
+          <ellipse cx="-7" cy="-68" rx="8" ry="4" fill="#2c1f10"/>
+          <ellipse cx="7" cy="-68" rx="8" ry="4" fill="#2c1f10"/>
+
+          <!-- Eyes -->
+          <circle cx="-9" cy="-83" r="4" fill="white"/>
+          <circle cx="9" cy="-83" r="4" fill="white"/>
+          <circle cx="-9" cy="-83" r="2.5" fill="#222"/>
+          <circle cx="9" cy="-83" r="2.5" fill="#222"/>
+
+          <!-- Sandals (yellow-gold) -->
+          <ellipse cx="-14" cy="76" rx="16" ry="8" fill="#c8960c"/>
+          <ellipse cx="14" cy="76" rx="16" ry="8" fill="#c8960c"/>
+          <!-- Sandal straps -->
+          <line x1="-20" y1="73" x2="-8" y2="68" stroke="#8B6914" stroke-width="2.5"/>
+          <line x1="-14" y1="71" x2="-14" y2="65" stroke="#8B6914" stroke-width="2.5"/>
+          <line x1="8" y1="68" x2="20" y2="73" stroke="#8B6914" stroke-width="2.5"/>
+          <line x1="14" y1="71" x2="14" y2="65" stroke="#8B6914" stroke-width="2.5"/>
+
+        </svg>
+      </div>
 
       <!-- Scattered objects -->
       <div class="item i1 w2">⏰</div>
