@@ -2,99 +2,134 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World</title>
+    <title>Homer's Web Page</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #f0f4f8;
-        transition: background-color 0.5s;
-      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
 
-      .card {
-        text-align: center;
-        background: white;
-        padding: 60px 80px;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      body {
+        background-color: #7ec8e3;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        font-family: Impact, "Arial Black", sans-serif;
       }
 
       h1 {
-        font-size: 48px;
-        color: #1a202c;
-        margin: 0 0 12px 0;
-        transition: color 0.3s;
+        text-align: center;
+        font-size: 64px;
+        color: #111;
+        padding: 16px 0 0 0;
+        letter-spacing: 1px;
+        text-shadow: 3px 3px 0px rgba(0,0,0,0.15);
       }
 
-      p {
-        font-size: 18px;
-        color: #718096;
-        margin: 0 0 32px 0;
+      .scene {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 90px);
       }
 
-      button {
-        background-color: #4a90e2;
-        color: white;
-        border: none;
-        padding: 14px 32px;
-        font-size: 16px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.2s, transform 0.1s;
+      /* ── Center spinning figure ── */
+      .homer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 110px;
+        line-height: 1;
+        transform-origin: center center;
+        animation: spin 2.5s linear infinite;
+        user-select: none;
+        filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
       }
 
-      button:hover {
-        background-color: #357abd;
+      @keyframes spin {
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to   { transform: translate(-50%, -50%) rotate(360deg); }
       }
 
-      button:active {
-        transform: scale(0.97);
+      /* ── Floating objects ── */
+      .item {
+        position: absolute;
+        font-size: 52px;
+        user-select: none;
+        animation-name: wobble;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.2));
       }
 
-      .counter {
-        margin-top: 20px;
-        font-size: 14px;
-        color: #a0aec0;
+      @keyframes wobble {
+        0%   { transform: translate(0px, 0px)   rotate(-8deg) scale(1.0); }
+        30%  { transform: translate(4px, -5px)  rotate(5deg)  scale(1.05); }
+        60%  { transform: translate(-5px, 3px)  rotate(-4deg) scale(0.97); }
+        100% { transform: translate(3px, -3px)  rotate(9deg)  scale(1.03); }
       }
+
+      /* Slightly different wobble for variety */
+      @keyframes wobble2 {
+        0%   { transform: translate(0px, 0px)   rotate(6deg)  scale(1.02); }
+        40%  { transform: translate(-6px, 4px)  rotate(-7deg) scale(0.96); }
+        70%  { transform: translate(5px, -4px)  rotate(4deg)  scale(1.04); }
+        100% { transform: translate(-3px, 3px)  rotate(-9deg) scale(0.99); }
+      }
+
+      @keyframes wobble3 {
+        0%   { transform: translate(2px, -2px)  rotate(-5deg) scale(1.0);  }
+        50%  { transform: translate(-4px, 5px)  rotate(8deg)  scale(1.06); }
+        100% { transform: translate(4px, -4px)  rotate(-6deg) scale(0.95); }
+      }
+
+      .w2 { animation-name: wobble2; }
+      .w3 { animation-name: wobble3; }
+
+      /* ── Individual positions & timings ── */
+      .i1  { top: 8%;  left: 10%; animation-duration: 0.55s; }
+      .i2  { top: 30%; left: 4%;  animation-duration: 0.45s; }
+      .i3  { top: 50%; left: 7%;  animation-duration: 0.60s; }
+      .i4  { top: 68%; left: 3%;  animation-duration: 0.50s; }
+      .i5  { top: 82%; left: 12%; animation-duration: 0.40s; }
+      .i6  { top: 90%; left: 28%; animation-duration: 0.65s; }
+      .i7  { top: 75%; left: 42%; animation-duration: 0.48s; }
+      .i8  { top: 85%; left: 58%; animation-duration: 0.55s; }
+      .i9  { top: 72%; left: 72%; animation-duration: 0.42s; }
+      .i10 { top: 82%; left: 84%; animation-duration: 0.58s; }
+      .i11 { top: 55%; left: 88%; animation-duration: 0.47s; }
+      .i12 { top: 35%; left: 85%; animation-duration: 0.62s; }
+      .i13 { top: 15%; left: 80%; animation-duration: 0.44s; }
+      .i14 { top: 10%; left: 55%; animation-duration: 0.53s; }
+      .i15 { top: 20%; left: 28%; animation-duration: 0.49s; }
+      .i16 { top: 38%; left: 20%; animation-duration: 0.57s; }
     </style>
   </head>
   <body>
-    <div class="card">
-      <h1 id="greeting">Hello, World!</h1>
-      <p id="subtitle">Welcome to my first webpage, Jay.</p>
-      <button id="btn" onclick="changeGreeting()">Click me</button>
-      <div class="counter" id="counter">Clicked 0 times</div>
+
+    <h1>Homer's Web Page</h1>
+
+    <div class="scene">
+
+      <!-- Center spinning Homer -->
+      <div class="homer">🕴️</div>
+
+      <!-- Scattered objects -->
+      <div class="item i1 w2">⏰</div>
+      <div class="item i2 w3">🪱</div>
+      <div class="item i3">👄</div>
+      <div class="item i4 w2">🍞</div>
+      <div class="item i5 w3">🔔</div>
+      <div class="item i6">🪱</div>
+      <div class="item i7 w2">⏰</div>
+      <div class="item i8 w3">🍞</div>
+      <div class="item i9">🪱</div>
+      <div class="item i10 w2">⏰</div>
+      <div class="item i11 w3">🔔</div>
+      <div class="item i12">👄</div>
+      <div class="item i13 w2">🍞</div>
+      <div class="item i14 w3">⏰</div>
+      <div class="item i15">👄</div>
+      <div class="item i16 w2">🪱</div>
+
     </div>
 
-    <script>
-      const greetings = [
-        { text: "Hello, World!", color: "#1a202c", bg: "#f0f4f8" },
-        { text: "Bonjour, Monde!", color: "#2b6cb0", bg: "#ebf8ff" },
-        { text: "Hola, Mundo!", color: "#276749", bg: "#f0fff4" },
-        { text: "Ciao, Mondo!", color: "#744210", bg: "#fffff0" },
-        { text: "こんにちは!", color: "#702459", bg: "#fff5f7" },
-      ];
-
-      let clickCount = 0;
-      let currentIndex = 0;
-
-      function changeGreeting() {
-        clickCount++;
-        currentIndex = (currentIndex + 1) % greetings.length;
-
-        const next = greetings[currentIndex];
-
-        document.getElementById("greeting").textContent = next.text;
-        document.getElementById("greeting").style.color = next.color;
-        document.body.style.backgroundColor = next.bg;
-        document.getElementById("counter").textContent =
-          `Clicked ${clickCount} time${clickCount === 1 ? "" : "s"}`;
-      }
-    </script>
   </body>
 </html>
